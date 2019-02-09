@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Prac 1</title>
+</head>
+<body>
+   <h1>Game Prac 1</h1>
+   
+   <canvas id="gameCanvas" width="700" height="600"></canvas>
+   
+    <script>
+        
+        var canvas;
+        var canvasContext;
+        var ballX = 50;
+        
+        
+        window.onload = function(){
+            
+            canvas = document.getElementById('gameCanvas');
+            canvasContext = canvas.getContext("2d");
+            var framePerSecond = 30;
+            setInterval(function(){moveEverything(); drawEverything()},1000/framePerSecond);
+            
+        }
+        
+        function moveEverything(){
+            ballX = ballX + 5;
+            if(ballX==canvas.width) ballX=50;
+            
+        }
+        
+        function drawEverything(){
+            
+            canvasContext.fillStyle = "black";
+            canvasContext.fillRect(0,0,canvas.width,canvas.height);
+            canvasContext.fillStyle = "red";
+            canvasContext.fillRect(ballX,100,10,10);
+            canvasContext.fillStyle = "white"; canvasContext.fillRect(1,canvas.height/2-50,10,100);
+        }
+        
+        
+    </script>
+</body>
+</html>
